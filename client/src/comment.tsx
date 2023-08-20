@@ -11,7 +11,7 @@ export const Comment = ({ postId, comments }: IComment) => {
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+    await axios.post(`http://posts.com/posts/${postId}/comments`, {
       content,
     });
     setContent("");
