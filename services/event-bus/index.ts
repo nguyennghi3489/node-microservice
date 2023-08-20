@@ -9,14 +9,12 @@ const events: any = [];
 
 app.post("/events", (req, res) => {
   const event = req.body;
-
   events.push(event);
-  console.log(events);
 
-  axios.post("http://localhost:4000/events", event).catch(() => {});
-  axios.post("http://localhost:4001/events", event).catch(() => {});
-  axios.post("http://localhost:4002/events", event).catch(() => {});
-  axios.post("http://localhost:4003/events", event).catch(() => {});
+  axios.post("http://post-clusterip-srv:4000/events", event).catch(() => {});
+  axios.post("http://comments-srv:4001/events", event).catch(() => {});
+  axios.post("http://query-srv:4002/events", event).catch(() => {});
+  axios.post("http://moderation-srv:4003/events", event).catch(() => {});
 
   res.send({ status: "OK" });
 });
